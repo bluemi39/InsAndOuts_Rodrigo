@@ -12,6 +12,9 @@ int yData = 60;
 
 void setup() {
  size(1920,1080);
+ 
+ //frameRate(1);
+ 
 }
 
 void draw() {
