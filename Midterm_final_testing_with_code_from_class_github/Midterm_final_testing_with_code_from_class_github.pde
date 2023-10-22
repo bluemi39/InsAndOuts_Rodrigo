@@ -25,7 +25,7 @@
  */
 
 int scene=1; //creating state variable called scene
-float expand=0; //used in scene 3 animation
+
 
 int timelyValue = 0;
 
@@ -40,9 +40,7 @@ void setup() {
 
 void draw() {
   background(255);//Changed by me delted latert.
-  if (scene!=3) {  //if scene does not = 3
-    expand=0;  //reset value of expand
-  }
+
   if (scene==1) {
     doScene1();
   } else if (scene==2) {
@@ -68,6 +66,9 @@ void keyPressed() {
 }
 
 void doScene1() {
+  
+    frameRate(60);
+    
     strokeWeight(2);
     fill(255,255,230);
     triangle(256,400,60,100,350,400);
@@ -82,6 +83,9 @@ void doScene1() {
 }
 
 void doScene2() {
+  
+      frameRate(60);
+      
       if(timelyValue > 800){ 
       strokeWeight(40);
       fill(250,10,48);
@@ -100,6 +104,8 @@ void doScene2() {
 }
 
 void doScene3() {
+  
+    frameRate(5);
   
     for (int y = 0; y <= height + 220; y= y + 220){
     for (int x = 0; x <= width + 220; x = x + 220) {
