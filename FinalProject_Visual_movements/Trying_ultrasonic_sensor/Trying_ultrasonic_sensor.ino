@@ -6,11 +6,17 @@
   by Dejan Nedelkovski,
   www.HowToMechatronics.com
 
+  Now I will add the ability to have support for potentiameter.
+
 */
 
 // defines pins numbers
 const int trigPin = 9;
 const int echoPin = 10;
+
+  const int Potentiameter = A0;
+  int val = 0;
+  int valData;
 
 // defines variables
 long duration;
@@ -19,6 +25,9 @@ int distance;
 void setup() {
   pinMode(trigPin, OUTPUT); // Sets the trigPin as an Output
   pinMode(echoPin, INPUT); // Sets the echoPin as an Input
+
+  pinMode (Potentiameter, input);
+
   Serial.begin(9600); // Starts the serial communication
 }
 
@@ -38,8 +47,16 @@ void loop() {
   // Calculating the distance
   distance = duration * 0.034 / 2;
 
+
+
+  // Code by Rodrigo
+ // valData = valueProcessing(val);
+ // serial write only no serial print for more final work.
+
+
   // Prints the distance on the Serial Monitor
   Serial.print("Distance: ");
   Serial.println(distance);
   
 }
+
