@@ -6,7 +6,7 @@
   by Dejan Nedelkovski,
   www.HowToMechatronics.com
 
-  Now I will add the ability to have support for potentiameter.
+  Now I (Rodrigo) will add the ability to have support for potentiameter.
 
 */
 
@@ -14,9 +14,10 @@
 const int trigPin = 9;
 const int echoPin = 10;
 
+
   const int Potentiameter = A0;
   int val = 0;
-  int valData;
+  int valData = 0;
 
 // defines variables
 long duration;
@@ -26,7 +27,7 @@ void setup() {
   pinMode(trigPin, OUTPUT); // Sets the trigPin as an Output
   pinMode(echoPin, INPUT); // Sets the echoPin as an Input
 
-  pinMode (Potentiameter, input);
+  pinMode (Potentiameter, INPUT);
 
   Serial.begin(9600); // Starts the serial communication
 }
@@ -48,6 +49,13 @@ void loop() {
   distance = duration * 0.034 / 2;
 
 
+  //Stuff to make the potentiameter work
+  val = analogRead(Potentiameter);
+  delay(100);
+
+
+
+
 
   // Code by Rodrigo
  // valData = valueProcessing(val);
@@ -55,8 +63,12 @@ void loop() {
 
 
   // Prints the distance on the Serial Monitor
-  Serial.print("Distance: ");
-  Serial.println(distance);
+  //Serial.print("Distance: ");
+  //Serial.println(distance);
+
+  // Data to be received by Processing
+  //                                 
+  Serial.write(map(distance,0,1023,1,239));
+  Serial.write(map(val,0,1023,240,255));
   
 }
-
