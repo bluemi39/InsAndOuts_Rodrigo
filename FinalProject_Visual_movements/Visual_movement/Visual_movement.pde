@@ -9,6 +9,10 @@ smaller in size, get futher away from the ultrasonic sensor.
 To make the background color closer to a blue
 put the potentiameter closer to the right. To make the color closer to a white
 put the potentiameter closer to the left.
+
+Switching from if statements to while loops
+
+Tried using while loops and it did not work as intended.
 */
 
 import processing.serial.*;
@@ -28,8 +32,19 @@ void setup() {
  frameRate(24);
 }
 
+
+
+
+
+
+
+
+
+
+
+
 void draw() {
-      
+  
   if ( myPort.available() > 0) { // If data is available,
    value = myPort.read(); // read it and store it in val
   }
@@ -55,19 +70,13 @@ void draw() {
       
   }
   
-  
-  
-  
-  
-  
-  
   //minimum 5 and maximum 25. 127 to be more exact.
   // new mininum 1 and maximum 255
     
   //          5             10
   //          1             90
   //          1             24
-  if(value >= 1 && value <= 4) {
+  if (value >= 1 && value <= 4) {
         
   // Small size
   strokeWeight(2);
